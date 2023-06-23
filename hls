@@ -24,7 +24,7 @@ run()
     # create index file
     printf '#EXTM3U\n#EXT-X-STREAM-INF:BANDWIDTH=375000,RESOLUTION=640x360\n360_out.m3u8\n#EXT-X-STREAM-INF:BANDWIDTH=750000,RESOLUTION=854x480\n480_out.m3u8\n#EXT-X-STREAM-INF:BANDWIDTH=2000000,RESOLUTION=1280x720\n720_out.m3u8\n#EXT-X-STREAM-INF:BANDWIDTH=3500000,RESOLUTION=1920x1080\n1080_out.m3u8' > ./media/$MEDIA_NAME/hls/$MEDIA_NAME.m3u8
 
-    # 350p video
+    # 360p video
     ffmpeg -i $INPUT_VIDEO -profile:v baseline -level 3.0 -s 640x360 -start_number 0 -hls_time 10 -hls_list_size 0 -f hls ./media/$MEDIA_NAME/hls/360_out.m3u8
 
     # 480p video
